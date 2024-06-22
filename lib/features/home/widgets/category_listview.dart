@@ -7,11 +7,11 @@ class CategoryListView extends StatelessWidget {
   final List<CategoryModel> categories =
       [
         CategoryModel(
-            imagename: AppImages.business,
-            categoryname: "business"),
+            imagename: AppImages.Business,
+            categoryname: "Business"),
         CategoryModel(
-            imagename: AppImages.entertaiment,
-            categoryname: "entertaiment"),
+            imagename: AppImages.Entertainment,
+            categoryname: "Entertainment"),
         CategoryModel(
             imagename: AppImages.general,
             categoryname: "general"),

@@ -5,7 +5,6 @@ import 'package:newsapptharwat/services/news_service.dart';
 import 'features/home/views/Homescreen.dart';
 
 void main() {
-NewsService(Dio()).getNews();
   runApp(const MyApp());
 }
 final dio = Dio();

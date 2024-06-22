@@ -37,7 +37,7 @@ class Homescreen extends StatelessWidget{
            SliverList(delegate: SliverChildBuilderDelegate(
              childCount: 10,
                 (context,index){
-                 return NewsListViewBulder();
+                 return NewsListViewBulder(category: "general",);
                }
            )
            ),

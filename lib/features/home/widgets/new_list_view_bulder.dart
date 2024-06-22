@@ -7,33 +7,39 @@ import '../../../models/article_model.dart';
 import '../../../services/news_service.dart';
 
 class NewsListViewBulder extends StatefulWidget {
-  const NewsListViewBulder({super.key,});
+  const NewsListViewBulder({super.key, required this.category,});
+  final String category;
+
 
   @override
   State<NewsListViewBulder> createState() => _NewsListViewBulderState();
 }
 
 class _NewsListViewBulderState extends State<NewsListViewBulder> {
-  bool isloading = true;
-  List<ArticleModel> articles =[];
+  var future;
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getGeneralNews();
+    future= NewsService(Dio(),).getNews( category: widget.category);
   }
-  Future<void> getGeneralNews() async{
-    articles = await NewsService(Dio()).getNews();
-    isloading = false;
-    setState(() {
-
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    return isloading? Center(child: CircularProgressIndicator()) : articles.isNotEmpty ? NewListView(
-      articles: articles,
-    ): Text("opps there was an error, please try again");
+    return FutureBuilder <List<ArticleModel>>(
+      future:future ,
+
+        builder: (context, snapshot) {
+          if(snapshot.hasData){
+            return NewListView(
+                articles: snapshot.data ?? []
+            );
+          } else if (snapshot.hasError){
+            return Text("opps there was an error, please try again");
+          }else
+          {
+           return Center(child: CircularProgressIndicator());
+          }
+        },
+    );
   }
 }
