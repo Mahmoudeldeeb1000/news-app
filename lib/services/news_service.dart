@@ -17,7 +17,8 @@ class NewsService {
       ArticleModel articleModel = ArticleModel(
           image:article["urlToImage"] ,
           title: article["title"],
-          des: article["description"]
+          des: article["description"],
+          url: article["url"]
       );
       articlelist.add(articleModel);
     }

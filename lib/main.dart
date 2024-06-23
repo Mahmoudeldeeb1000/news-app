@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapptharwat/services/news_service.dart';
 
 import 'features/home/views/Homescreen.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 void main() {
   runApp(const MyApp());

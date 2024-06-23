@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsapptharwat/features/home/views/Category_view.dart';
+import 'package:newsapptharwat/models/article_model.dart';
 import 'package:newsapptharwat/models/category_model.dart';
 
 import '../../../core/util/app_images.dart';
@@ -10,6 +11,7 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return
       GestureDetector(
         onTap: (){
